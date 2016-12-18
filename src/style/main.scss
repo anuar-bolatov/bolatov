@@ -1,0 +1,60 @@
+/* -------------------------------- 
+
+Components 
+
+-------------------------------- */
+    
+@import "components/layout";
+@import "components/mixins";
+@import "components/variables";
+
+/* -------------------------------- 
+
+Primary style 
+
+-------------------------------- */
+    
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+body {
+	font: {
+		size: 100%;
+		family: $primary-font; // variables inside partials > _variables.scss
+	}
+	color: rgba($color-1, .7);
+	background-color: $color-3;
+
+	&.overflow-hidden {
+		/* when primary navigation is visible, the content in the background won't scroll */
+		overflow: hidden;
+	}
+}
+
+a {
+	color: $color-3;
+	text-decoration: none;
+}
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+
+.cd-container { /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+	width: 90%;
+	max-width: $M; // breakpoints inside partials > _layout.scss
+	margin: 0 auto;
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+html, body {
+	height: 100%;
+}
