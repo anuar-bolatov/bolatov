@@ -27,7 +27,8 @@
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.11",
     "node-normalize-scss": "^1.4.0",
-    "pump": "^1.0.1"
+    "pump": "^1.0.1",
+    "susy": "^2.2.12"
   },
   "dependencies": {}
 }

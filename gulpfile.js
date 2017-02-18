@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     reload = browserSync.reload;
 
+// Defining all routes to files
 var path = {
     build: {
         html: 'build/',
@@ -29,6 +30,7 @@ var path = {
     clean: './build'
 };
 
+// Synchronizing and Running local server + Tunnel for clients
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
@@ -40,6 +42,7 @@ gulp.task('browser-sync', function() {
     });
 });
 
+// Combine HTML partials + Auto reaload server
 gulp.task('html:build', function () {
     gulp.src(path.src.html)
         .pipe(rigger()) //start rigger
@@ -47,6 +50,7 @@ gulp.task('html:build', function () {
         .pipe(reload({stream: true})); //reload server
 });
 
+// Minify and compile JavaScript
 gulp.task('js:build', function () {
     pump([
       gulp.src(path.src.js), //finds main.js file
@@ -59,12 +63,15 @@ gulp.task('js:build', function () {
     ]);
 });
 
+// Compile SCSS to CSS + adding Susy
 gulp.task('style:build', function () {
   gulp.src(path.src.style)
     .pipe(sourcemaps.init()) //initialise sourcemap
     .pipe(sass({
-        includePaths: require('node-normalize-scss').includePaths
-    })) //compile styles
+        includePaths: require('node-normalize-scss').includePaths,
+        outputStyle: 'compressed',
+        includePaths: ['node_modules/susy/sass']
+    })).on('error', sass.logError) //compile styles & add susy
     .pipe(autoprefixer()) //add prefixes
     .pipe(cleanCSS()) //compress styles
     .pipe(sourcemaps.write('.')) //write sourcemap
@@ -72,12 +79,14 @@ gulp.task('style:build', function () {
     .pipe(reload({stream: true})); //reload server
 });
 
+// Combining build tasks
 gulp.task('build', [
     'html:build',
     'js:build',
     'style:build'
 ]);
 
+// Watching all tasks
 gulp.task('watch', function(){
     watch([path.watch.html], function(event, cb) {
         gulp.start('html:build');
@@ -90,4 +99,5 @@ gulp.task('watch', function(){
     });
 });
 
+// Defining default "gulp" task to run all processes
 gulp.task('default', ['build', 'watch', 'browser-sync']); //default task
