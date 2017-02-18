@@ -28,5 +28,6 @@
     "gulp-watch": "^4.3.11",
     "node-normalize-scss": "^1.4.0",
     "pump": "^1.0.1"
-  }
+  },
+  "dependencies": {}
 }
