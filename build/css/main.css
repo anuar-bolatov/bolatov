@@ -1,2 +1,2 @@
-*,:after,:before{box-sizing:border-box}body{font-size:100%;font-family:raleway,sans-serif;color:rgba(2,23,37,.7);background-color:#fff}body.overflow-hidden{overflow:hidden}a{color:#fff;text-decoration:none}.cd-container{width:90%;max-width:768px;margin:0 auto}body,html{height:100%}
+body{font-size:100%;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:rgba(41,43,44,.7);background-color:#f7f7f7}body.overflow-hidden{overflow:hidden}body,html{height:100%}*,:after,:before{box-sizing:border-box}a{color:#e36767;text-decoration:none}.container{background-color:#fff}
 /*# sourceMappingURL=main.css.map */

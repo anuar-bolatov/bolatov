@@ -11,4 +11,4 @@ Custom
 
 -------------------------------- */
 
-//= components/app.js
+//= components/component.js

@@ -3,28 +3,29 @@
 Components 
 
 -------------------------------- */
+
+
+@import "../../node_modules/susy/sass/_susy.scss";
+@import "../../node_modules/breakpoint-sass/stylesheets/_breakpoint";
     
-@import "components/layout";
-@import "components/mixins";
-@import "components/variables";
+@import "mixins";
+@import "variables";
+
 
 /* -------------------------------- 
 
 Primary style 
 
 -------------------------------- */
-    
-*, *:after, *:before {
-	box-sizing: border-box;
-}
+
 
 body {
 	font: {
 		size: 100%;
 		family: $primary-font; // variables inside partials > _variables.scss
 	}
-	color: rgba($color-1, .7);
-	background-color: $color-3;
+	color: rgba($default-text, .7);
+	background-color: $body-background;
 
 	&.overflow-hidden {
 		/* when primary navigation is visible, the content in the background won't scroll */
@@ -32,21 +33,18 @@ body {
 	}
 }
 
-a {
-	color: $color-3;
-	text-decoration: none;
+
+html, body {
+	height: 100%;
 }
 
-/* -------------------------------- 
-
-Modules - reusable parts of our design
-
--------------------------------- */
-
-.cd-container { /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
-	width: 90%;
-	max-width: $M; // breakpoints inside partials > _layout.scss
-	margin: 0 auto;
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+    
+a {
+	color: $links;
+	text-decoration: none;
 }
 
 /* -------------------------------- 
@@ -55,6 +53,7 @@ Main components
 
 -------------------------------- */
 
-html, body {
-	height: 100%;
+
+.container{
+  background-color:$white;
 }

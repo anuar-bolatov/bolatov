@@ -31,7 +31,7 @@ var path = {
 };
 
 // Synchronizing and Running local server + Tunnel for clients
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
     browserSync.init({
         server: {
             baseDir: "./build"
@@ -87,14 +87,14 @@ gulp.task('build', [
 ]);
 
 // Watching all tasks
-gulp.task('watch', function(){
-    watch([path.watch.html], function(event, cb) {
+gulp.task('watch', function () {
+    watch([path.watch.html], function (event, cb) {
         gulp.start('html:build');
     });
-    watch([path.watch.style], function(event, cb) {
+    watch([path.watch.style], function (event, cb) {
         gulp.start('style:build');
     });
-    watch([path.watch.js], function(event, cb) {
+    watch([path.watch.js], function (event, cb) {
         gulp.start('js:build');
     });
 });
